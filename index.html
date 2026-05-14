@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Harcama Takibi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    
+    <header>
+        <h1>Gelir-Gider Takibi</h1>
+    </header>
+
+    <main>
+
+      
+        <section class="ozet">
+            <div class="ozet-kart gelir">
+                <p class="ozet-baslik">Toplam Gelir</p>
+                <p class="ozet-tutar" id="toplam-gelir">0,00 ₺</p>
+            </div>
+            <div class="ozet-kart gider">
+                <p class="ozet-baslik">Toplam Gider</p>
+                <p class="ozet-tutar" id="toplam-gider">0,00 ₺</p>
+            </div>
+            <div class="ozet-kart bakiye">
+                <p class="ozet-baslik">Bakiye</p>
+                <p class="ozet-tutar" id="bakiye">0,00 ₺</p>
+            </div>
+        </section>
+
+        
+        <section class="kart">
+            <h2 id="form-baslik">Yeni Kayıt Ekle</h2>
+
+            <form id="kayit-formu">
+               
+                <input type="hidden" id="duzenlenen-id" value="">
+
+                <div class="form-satir">
+                    <label>
+                        Açıklama
+                        <input type="text" id="aciklama" maxlength="100" required>
+                    </label>
+
+                    <label>
+                        Tutar (₺)
+                        <input type="number" id="tutar" min="0.01" step="0.01" required>
+                    </label>
+                </div>
+
+                <div class="form-satir">
+                    <label>
+                        Tarih
+                        <input type="date" id="tarih" required>
+                    </label>
+
+                    <label>
+                        Tür
+                        <select id="tur">
+                            <option value="expense">Gider</option>
+                            <option value="income">Gelir</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Kategori
+                        <select id="kategori"></select>
+                    </label>
+                </div>
+
+                <div class="form-butonlar">
+                    <button type="submit" id="kaydet-butonu" class="btn btn-primary">Ekle</button>
+                    <button type="button" id="iptal-butonu" class="btn btn-secondary" style="display: none;">İptal</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="kart">
+            <h2>Kayıtlar (<span id="kayit-sayisi">0</span>)</h2>
+
+            <p id="bos-mesaj" class="bos-mesaj">Henüz hiç kayıt yok. Yukarıdan ilk kaydını ekleyebilirsin.</p>
+
+            <table id="kayit-tablosu">
+                <thead>
+                    <tr>
+                        <th>Tarih</th>
+                        <th>Açıklama</th>
+                        <th>Kategori</th>
+                        <th>Tür</th>
+                        <th class="sag">Tutar</th>
+                        <th class="orta">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody id="kayit-listesi"></tbody>
+            </table>
+        </section>
+
+    </main>
+
+
+   
+    <script src="db/expense.js"></script>
+    <script src="bilesenler/form.js"></script>
+    <script src="bilesenler/list.js"></script>
+    <script src="bilesenler/summary.js"></script>
+    <script src="app/main.js"></script>
+
+</body>
+</html>
